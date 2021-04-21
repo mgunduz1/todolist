@@ -1,6 +1,6 @@
-<div class="card-header d-flex justify-content-between">
-  <h4 class="m-0 text-dark"> Todo Lists</h4>
-  <%= link_to 'New Todo List', new_todo_list_path, class:"btn btn-primary btn-sm" %>
+<div class="card-header d-flex justify-content-between py-4">
+  <h1 class="m-0 text-dark"> Todo Lists</h1>
+  <%= link_to 'New Todo List', new_todo_list_path, class:"btn btn-primary btn-lg my-auto" %>
 </div>
 
 
@@ -8,15 +8,18 @@
 <ul class="list-group">
   <% @todo_lists.each do |todo_list| %>
   <%= link_to todo_list, class:"text-decoration-none" do %>
-    <li class="list-group-item d-flex justify-content-between">
+    <li class="list-group-item d-flex justify-content-between pb-2 pt-3">
       <div>
-        <h5 class="m-0 text-muted">
+        <h5 class="m-0 text-dark text-start text-capitalize pb-1">
           <b><%= todo_list.title %></b>
-          <span class="badge bg-<%= todo_list.badge_color %>"><%= todo_list.status %></span>
+          <span class="badge rounded-pill bg-<%= todo_list.badge_color %>"><%= todo_list.status %></span>
         </h5>
         <p class="text-secondary m-0"> <%= todo_list.percent_complete %>% Completed ( <%= todo_list.completed_items %>/<%= todo_list.total_items %> Todo Items ) </p>
       </div>
       <div>
+      <%= link_to '#', class:"btn btn-danger btn-lg", data: { reflex: 'click->TodoList#delete_that_list', id: todo_list.id } do %>
+      <i class="fas fa-trash-alt"></i>
+      <% end %>
         <%= link_to 'Edit', edit_todo_list_path(todo_list), class:'btn btn-secondary btn-lg' %>
       </div>
     </li>

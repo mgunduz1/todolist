@@ -1,13 +1,13 @@
 <div class="card-header d-flex justify-content-between">
-  <div>
-    <h4 class="m-0">
+  <div class="py-1">
+    <h4 class="m-0 text-start text-capitalize">
       <b><%= @todo_list.title %></b>
       <span class="badge bg-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
     </h4>
     <p class="text-secondary m-0"> <%= @todo_list.percent_complete %>% Completed ( <%= @todo_list.completed_items %>/<%= @todo_list.total_items %> Todo Items ) </p>
   </div>
-  <div>
-    <%= link_to 'Edit', edit_todo_list_path(@todo_list), class:'btn btn-secondary btn-lg' %>
+  <div class="py-1">
+    <%= link_to 'Back to List Menu', todo_lists_path, class:'btn btn-secondary btn-lg' %>
   </div>
 </div>
 <div class="card-body">
@@ -25,25 +25,39 @@
   <ul class="list-group">
     <% @todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.completed? %>
-        <li class="list-group-item bg-light">
+        <li class="list-group-item">
           <div class="d-flex justify-content-between">
-            <span class="text-muted">
+            <div>
+            <span class="text-success text-capitalize text-decoration-line-through fs-5 ">
               <%= todo_item.task %>
             </span>
-            <%= link_to '#', class:"btn btn-dark", data: { reflex: 'click->TodoItem#mark_incomplete', id: todo_item.id } do %>
-              <i class="fas fa-check"></i>
+            </div>
+            <div>
+            <%= link_to '#', class:"btn btn-danger", data: { reflex: 'click->TodoItem#delete_that_item', id: todo_item.id } do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
+            <%= link_to '#', class:"btn btn-dark", data: { reflex: 'click->TodoItem#complete_negative', id: todo_item.id } do %>
+              <i class="fas fa-undo"></i>
+            <% end %>
+          </div>
           </div>
         </li>
       <% else %>
         <li class="list-group-item">
           <div class="d-flex justify-content-between">
-            <span>
+          <div>
+            <span class="text-capitalize fs-5 fw-bold">
               <%= todo_item.task %>
             </span>
-            <%= link_to '#', class:"btn btn-success", data: { reflex: 'click->TodoItem#mark_complete', id: todo_item.id } do %>
-              <i class="fas fa-times"></i>
+            </div>
+            <div>
+            <%= link_to '#', class:"btn btn-danger", data: { reflex: 'click->TodoItem#delete_that_item', id: todo_item.id } do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
+            <%= link_to '#', class:"btn btn-success", data: { reflex: 'click->TodoItem#complete_positive', id: todo_item.id } do %>
+              <i class="fas fa-check"></i>
+            <% end %>
+            </div>
           </div>
         </li>
       <% end %>

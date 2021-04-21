@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="field py-2">
+    <%= form.label :title, class:"fs-5" %>
     <%= form.text_field :title %>
   </div>
 
@@ -20,7 +20,7 @@
     <%= form.number_field :user_id, id: :todo_list_user_id, class:"form-control", value: current_user.id, type: :hidden  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions py-3">
+    <%= form.submit class:"btn btn-success btn-md" %>
   </div>
 <% end %>
