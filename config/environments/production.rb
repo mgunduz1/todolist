@@ -66,9 +66,9 @@ Rails.application.configure do
       driver: :hiredis,
       expire_after: 1.year,
       ttl: 1.year,
-      key_prefix: "app:session:",
-      url: ENV.fetch("HEROKU_REDIS_MAROON_URL")
+      key_prefix: "app:session:"
     }
+
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "to_do_production"
