@@ -1,24 +1,22 @@
-# README
+# TodoList
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Stack
 
-* Ruby version
+- Rails 6.1
+- Ruby 3
+- Stimulus Reflex 3.4
+- Redis
+- Postgresql
+- Bootstrap 5
 
-* System dependencies
 
-* Configuration
+## Live Demo of the Project
+[RIGHT HERE](https://mighty-forest-25503.herokuapp.com/)
 
-* Database creation
 
-* Database initialization
+## ✒️  Author <a name = "author"></a>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+👤 **Mert Gündüz**
+- Github: [@mgunduz1](https://github.com/mgunduz1)
+- Linkedin: [Mert Gunduz](https://www.linkedin.com/in/mert-gunduz-875280202/)
